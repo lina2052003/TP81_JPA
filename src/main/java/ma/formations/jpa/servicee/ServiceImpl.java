@@ -53,7 +53,7 @@ public class ServiceImpl implements IService {
             if (transaction != null) {
                 transaction.rollback();
             }
-            e.printStackTrace(); // Vous pouvez gérer cette exception de manière appropriée
+            e.printStackTrace();
         } finally {
             entityManager.close();
             entityManagerFactory.close();
@@ -62,7 +62,9 @@ public class ServiceImpl implements IService {
 
     @Override
     public void deleteArticle(Long articleId) {
+        // Crée une instance de EntityManagerFactory en utilisant l'unité de persistance nommée "unite1".
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("unite1");
+        // Crée un EntityManager à partir de l'EntityManagerFactory.
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = null;
 
@@ -81,7 +83,7 @@ public class ServiceImpl implements IService {
             if (transaction != null) {
                 transaction.rollback();
             }
-            e.printStackTrace(); // Vous pouvez gérer cette exception de manière appropriée
+            e.printStackTrace();
         } finally {
             entityManager.close();
             entityManagerFactory.close();
